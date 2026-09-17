@@ -1,0 +1,193 @@
+:root {
+    --cb-bg: #0f1117;
+    --cb-surface: #171a23;
+    --cb-surface-2: #1f2330;
+    --cb-primary: #e50914;
+    --cb-warning: #f5c518;
+    --cb-text: #e8e8ea;
+    --cb-text-dim: #9a9ba5;
+    --cb-border: #2a2e3d;
+    --seat-available: #2ecc71;
+    --seat-booked: #e74c3c;
+    --seat-selected: #3498db;
+}
+
+* { font-family: 'Poppins', sans-serif; }
+
+body {
+    background-color: var(--cb-bg);
+    color: var(--cb-text);
+}
+
+a { text-decoration: none; }
+
+/* Navbar */
+.cb-navbar {
+    background-color: var(--cb-surface);
+    border-bottom: 1px solid var(--cb-border);
+}
+.cb-navbar .nav-link { color: var(--cb-text-dim); }
+.cb-navbar .nav-link:hover { color: var(--cb-warning); }
+.navbar-brand { font-weight: 700; font-size: 1.5rem; color: var(--cb-text) !important; }
+
+/* Footer */
+.cb-footer {
+    background-color: var(--cb-surface);
+    border-top: 1px solid var(--cb-border);
+    color: var(--cb-text-dim);
+}
+.cb-footer a { color: var(--cb-text-dim); }
+.cb-footer a:hover { color: var(--cb-warning); }
+
+/* Hero */
+.cb-hero {
+    background: linear-gradient(135deg, #1a1d2b 0%, #0f1117 100%);
+    padding: 70px 0;
+    border-bottom: 1px solid var(--cb-border);
+}
+.cb-hero h1 { font-weight: 700; font-size: 2.8rem; }
+.cb-hero .highlight { color: var(--cb-warning); }
+
+/* Cards */
+.movie-card {
+    background: var(--cb-surface);
+    border: 1px solid var(--cb-border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease;
+    height: 100%;
+}
+.movie-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,.4);
+}
+.movie-card img { height: 340px; object-fit: cover; width: 100%; }
+.movie-card .card-body { background: var(--cb-surface); }
+.movie-card .badge-rating {
+    background: var(--cb-warning);
+    color: #000;
+    font-weight: 600;
+}
+
+.section-title {
+    font-weight: 700;
+    border-left: 5px solid var(--cb-primary);
+    padding-left: 12px;
+    margin-bottom: 28px;
+}
+
+/* Forms */
+.cb-card {
+    background: var(--cb-surface);
+    border: 1px solid var(--cb-border);
+    border-radius: 14px;
+}
+.form-control, .form-select {
+    background-color: var(--cb-surface-2);
+    border: 1px solid var(--cb-border);
+    color: var(--cb-text);
+}
+.form-control:focus, .form-select:focus {
+    background-color: var(--cb-surface-2);
+    color: var(--cb-text);
+    border-color: var(--cb-warning);
+    box-shadow: 0 0 0 .2rem rgba(245,197,24,.15);
+}
+.form-control::placeholder { color: var(--cb-text-dim); }
+label { color: var(--cb-text-dim); font-weight: 500; }
+
+.btn-primary {
+    background-color: var(--cb-primary);
+    border-color: var(--cb-primary);
+}
+.btn-primary:hover { background-color: #c40810; border-color: #c40810; }
+.btn-warning { color: #000; font-weight: 600; }
+
+/* Seat map */
+.screen-curve {
+    width: 80%;
+    margin: 0 auto 40px;
+    height: 10px;
+    background: linear-gradient(90deg, transparent, var(--cb-warning), transparent);
+    border-radius: 50%;
+    box-shadow: 0 0 20px 4px rgba(245,197,24,.4);
+}
+.seat {
+    width: 34px;
+    height: 34px;
+    margin: 4px;
+    border-radius: 6px 6px 10px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .7rem;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    transition: transform .15s;
+}
+.seat:hover:not(.booked) { transform: scale(1.12); }
+.seat.available { background-color: var(--seat-available); }
+.seat.booked { background-color: var(--seat-booked); cursor: not-allowed; opacity: .6; }
+.seat.selected { background-color: var(--seat-selected); }
+.seat.premium { border: 2px solid var(--cb-warning); }
+.seat-row-label { width: 24px; display: inline-flex; align-items: center; justify-content: center; color: var(--cb-text-dim); }
+
+.legend-box { width: 16px; height: 16px; border-radius: 4px; display: inline-block; margin-right: 6px; }
+
+/* Payment method cards */
+.pay-option {
+    border: 2px solid var(--cb-border);
+    border-radius: 10px;
+    padding: 16px;
+    cursor: pointer;
+    background: var(--cb-surface-2);
+    transition: border-color .2s;
+}
+.pay-option.active { border-color: var(--cb-warning); background: rgba(245,197,24,.08); }
+.pay-option input { display: none; }
+
+/* Ticket */
+.ticket-card {
+    background: var(--cb-surface);
+    border: 1px dashed var(--cb-warning);
+    border-radius: 14px;
+}
+
+/* Admin */
+.admin-sidebar {
+    background: #12141c;
+    min-height: 100vh;
+    border-right: 1px solid var(--cb-border);
+}
+.admin-sidebar a {
+    color: var(--cb-text-dim);
+    display: block;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 2px 10px;
+}
+.admin-sidebar a:hover, .admin-sidebar a.active {
+    background: var(--cb-primary);
+    color: #fff;
+}
+.stat-card {
+    background: var(--cb-surface);
+    border: 1px solid var(--cb-border);
+    border-radius: 12px;
+    padding: 20px;
+}
+.stat-card .icon-box {
+    width: 50px; height: 50px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+}
+
+.table-dark-custom {
+    --bs-table-bg: var(--cb-surface);
+    --bs-table-color: var(--cb-text);
+    --bs-table-border-color: var(--cb-border);
+}
+
+.status-badge { font-size: .75rem; padding: 5px 10px; border-radius: 20px; }
